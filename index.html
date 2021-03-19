@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<title>JSON (JavaScript Object Notation) | COMP1073 Client-Side JavaScript</title>
@@ -7,7 +7,6 @@
 	<link href="css/normalize.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />
 </head>
-
 <body>
 	<!-- STEP 1: Build out a HEADER and a SECTION element -->
 	<header>
@@ -22,8 +21,7 @@
 		const section = document.querySelector("section");
 		/* STEP 3: Store the URL of a JSON file in a variable */
 		//let requestURL = "https://smccrindle.github.io/comp1073module10/js/i-scream.json";
-		//let requestURL = "https://adilnabi.github.io/week10/js/i-scream.json";
-		requestURL = "js/i-scream.json";
+		let requestURL = "https://smccrindle.github.io/lesson-10/js/i-scream.json";
 		console.log(requestURL);
 		/* STEP 4: Create a new XHR object */
 		let request = new XMLHttpRequest();
@@ -38,6 +36,7 @@
 			let iScreamInc = request.response;
 			console.log(iScreamInc);
 			populateHeader(iScreamInc);
+			showTopFlavors(iScreamInc);
 		}
 		/* STEP 9: Build out the populateHeader() function */
 		function populateHeader(jsonObj) {
@@ -47,13 +46,10 @@
 		}
 		/* STEP 10a: Assemble the showTopFlavors() function */
 		function showTopFlavors(jsonObj) {
-		
 			// STEP 10b: Bind the JSON topFlavors object to a var
-
-			// let topFlavors = jsonObj.topFlavors; or use
 			let topFlavors = jsonObj["topFlavors"];
 			// STEP 10c: Loop through the topFlavors object
-			for (let i = 0; i < topFlavors.length; i++) {
+			for (let i = 0; i < topFlavors.length; i ++) {
 				// STEP 10d: build HTML elements for the content
 				let article = document.createElement("article");
 				let h2 = document.createElement("h2");
@@ -73,7 +69,6 @@
 					listItem.textContent = ingredients[j];
 					// add the ingredient to the UL
 					list.appendChild(listItem);
-
 				}
 				// STEP 10g: Append each of the above HTML elements to the ARTICLE element
 				article.appendChild(h2);
